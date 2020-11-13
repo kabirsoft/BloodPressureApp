@@ -1,0 +1,29 @@
+Solution name : BloodPressureApp
+Project Name :  BloodPressureApp (MVC)
+				BloodPressureApp.WebService (API)
+				BloodPressureApp.Data 
+					IRepositories
+					Repositories
+					Models: BloodPressureDB
+					  Table: Measurement
+                             Id, Systolic, Diastolic, Category, Stage, Alert 					  
+			   
+UnitTest     : UnitTestBloodPressureApp               
+			   Documentation
+---------------- How to run BloodPressureApp(MVC)---------
+BloodPressureApp  Set as startup project.
+ctr + f5
+BloodPressureApp : is MVC framework project 
+ 
+---------------- How to run BloodPressureApp.WebService (API) --------- 
+BloodPressureApp.WebService  Set as startup project.
+Then postman:
+Get: https://localhost:44394/api/Measurements 		   
+PostMan: https://localhost:44394/api/Measurements 
+post:  {
+        "systolic": 135,
+        "diastolic": 85      
+       }
+----------------- 
+Note: you can use any front-end by using WebService api 	   
+	 
