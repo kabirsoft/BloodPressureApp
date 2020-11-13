@@ -1,0 +1,73 @@
+﻿@model IEnumerable<BloodPressureApp.Data.Models.Measurement>
+@using BloodPressureApp.Data.Models
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Systolic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Diastolic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>         
+            <th>
+                @Html.DisplayNameFor(model => model.Suggestion)
+                
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortby="@ViewBag.OrderByDate"> @Html.DisplayNameFor(model => model.Date) </a>                    
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    string css_alert = "";
+    if(item.Category == Category.Normal)
+    {
+        css_alert = "alert-success";
+    }else if( item.Category == Category.HypertensionStage2)
+    {
+        css_alert = "alert-warning";
+    }else if(item.Category == Category.HighpertensiveCrisis)
+    {
+        css_alert = "alert-danger";
+    }
+        <tr class= @css_alert>
+            <td>
+                @Html.DisplayFor(modelItem => item.Systolic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diastolic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>            
+            <td>
+                @Html.DisplayFor(modelItem => item.Suggestion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                 @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a>|*@
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

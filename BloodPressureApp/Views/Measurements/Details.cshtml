@@ -1,0 +1,48 @@
+﻿@model BloodPressureApp.Data.Models.Measurement
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Measurement</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Systolic)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Systolic)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Diastolic)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Diastolic)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+     
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Suggestion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Suggestion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+    </dl>
+</div>
+<div>   
+    <a asp-action="Index">Back to List</a>
+</div>
