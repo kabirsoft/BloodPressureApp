@@ -18,31 +18,30 @@ namespace BloodPressureApp.WebService.Controllers
         private readonly ApplicationDbContext _context;
         private readonly IMeasurementRepo measurementRepo;
 
-        public MeasurementsController(ApplicationDbContext context, IMeasurementRepo measurementRepo)
-        {
-            _context = context;
+        public MeasurementsController(IMeasurementRepo measurementRepo)
+        {            
             this.measurementRepo = measurementRepo;
         }
 
         // GET: api/Measurements
         [HttpGet]
-        public ActionResult<IEnumerable<Measurement>> GetMeasurements()
+        public List<Measurement> GetMeasurements()
         {            
             return measurementRepo.GetAll().ToList();           
         }
 
-        // GET: api/Measurements/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Measurement>> GetMeasurement(int id)
-        {
-            var measurement = await _context.Measurements.FindAsync(id);
-            if (measurement == null)
-            {
-                return NotFound();
-            }
+        //// GET: api/Measurements/5
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult<Measurement>> GetMeasurement(int id)
+        //{
+        //    var measurement = await _context.Measurements.FindAsync(id);
+        //    if (measurement == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return measurement;
-        }       
+        //    return measurement;
+        //}       
 
         // POST: api/Measurements
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
@@ -73,29 +72,27 @@ namespace BloodPressureApp.WebService.Controllers
                 measurement.Category = Category.Normal;
             }
             measurementRepo.AddNew(measurement);
-            return CreatedAtAction("GetMeasurement", new { id = measurement.Id }, measurement);
+            //return CreatedAtAction("GetMeasurement", new { id = measurement.Id }, measurement);
+            return measurement;
         }
 
         // DELETE: api/Measurements/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Measurement>> DeleteMeasurement(int id)
-        {
-            var measurement = await _context.Measurements.FindAsync(id);
-            if (measurement == null)
+        public bool DeleteMeasurement(int id)
+        {           
+            var del = measurementRepo.Remove(id);
+            if (del)
             {
-                return NotFound();
+                return true;
             }
-
-            //_context.Measurements.Remove(measurement);
-            //await _context.SaveChangesAsync();
-
-            measurementRepo.Remove(id);
-            return measurement;
+            else
+            {
+                return false;
+            }
         }
-
-        private bool MeasurementExists(int id)
-        {
-            return _context.Measurements.Any(e => e.Id == id);
-        }
+        //private bool MeasurementExists(int id)
+        //{
+        //    return _context.Measurements.Any(e => e.Id == id);
+        //}
     }
 }

@@ -166,3 +166,4 @@ C:\Asp.Net_Pluralsight\Project\BloodPressureApp\BloodPressureApp.WebService\obj\
 C:\Asp.Net_Pluralsight\Project\BloodPressureApp\BloodPressureApp.WebService\obj\Debug\netcoreapp3.1\BloodPressureApp.WebService.dll
 C:\Asp.Net_Pluralsight\Project\BloodPressureApp\BloodPressureApp.WebService\obj\Debug\netcoreapp3.1\BloodPressureApp.WebService.pdb
 C:\Asp.Net_Pluralsight\Project\BloodPressureApp\BloodPressureApp.WebService\obj\Debug\netcoreapp3.1\BloodPressureApp.WebService.genruntimeconfig.cache
+C:\Asp.Net_Pluralsight\Project\BloodPressureApp\BloodPressureApp.WebService\obj\Debug\netcoreapp3.1\BloodPressureApp.WebService.csprojAssemblyReference.cache
