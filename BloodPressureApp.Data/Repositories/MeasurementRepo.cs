@@ -36,6 +36,6 @@ namespace BloodPressureApp.Data.Repositories
             db.Measurements.Remove(measurement);
             db.SaveChanges();
             return true;
-        }
+        }      
     }
 }

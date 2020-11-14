@@ -14,40 +14,23 @@ namespace BloodPressureApp.WebService.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class MeasurementsController : ControllerBase
-    {
-        private readonly ApplicationDbContext _context;
+    {        
         private readonly IMeasurementRepo measurementRepo;
-
         public MeasurementsController(IMeasurementRepo measurementRepo)
         {            
             this.measurementRepo = measurementRepo;
         }
 
-        // GET: api/Measurements
+        // GET: api/Measurements        
         [HttpGet]
         public List<Measurement> GetMeasurements()
         {            
             return measurementRepo.GetAll().ToList();           
         }
 
-        //// GET: api/Measurements/5
-        //[HttpGet("{id}")]
-        //public async Task<ActionResult<Measurement>> GetMeasurement(int id)
-        //{
-        //    var measurement = await _context.Measurements.FindAsync(id);
-        //    if (measurement == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return measurement;
-        //}       
-
         // POST: api/Measurements
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public ActionResult<Measurement> PostMeasurement(Measurement measurement)
+        public Measurement PostMeasurement(Measurement measurement)
         {
             if (measurement.Systolic > 180 || measurement.Diastolic > 120)
             {
@@ -71,12 +54,11 @@ namespace BloodPressureApp.WebService.Controllers
             {
                 measurement.Category = Category.Normal;
             }
-            measurementRepo.AddNew(measurement);
-            //return CreatedAtAction("GetMeasurement", new { id = measurement.Id }, measurement);
+            measurementRepo.AddNew(measurement);           
             return measurement;
         }
 
-        // DELETE: api/Measurements/5
+        // DELETE: api/Measurements/5        
         [HttpDelete("{id}")]
         public bool DeleteMeasurement(int id)
         {           
@@ -90,9 +72,5 @@ namespace BloodPressureApp.WebService.Controllers
                 return false;
             }
         }
-        //private bool MeasurementExists(int id)
-        //{
-        //    return _context.Measurements.Any(e => e.Id == id);
-        //}
     }
 }
