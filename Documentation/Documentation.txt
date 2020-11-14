@@ -1,29 +1,76 @@
+------------------------- Description:(what this app do) ---------------------------
+BloodPressureApp will take two input data: systalic(number) and diastolic(number). App will analysis input data and deliver inforamtion accordingly. 
+App will show as your body bloodpressure Normal or critical or any another stage in which stage you may need to change your life style.
+
+-------------------------- Set up: ----------------------------------
+1. Download/git clone from github
+2. You have to migrate database to run this application.
+How to migrate:
+VS->Tool->nuget package manager->package manager console -> select default project: BloodPressureApp.Data
+>add-migrate "Create database BloodPressureDB"
+>update-database
+Check MSSql if database created.
+
+------------------------- Two types of implementation in this solution(MVC and WebAPI): --------
+1. How to run MVC Project:
+set as startup project : BloodPressureApp 
+ctr + f5 or VS->Debug->start without debugging
+
+2.How to run WebAPI project:
+set as startup project : BloodPressureApp.WebService 
+ctr + f5 you will see Get functions value.
+URL: https://localhost:44394/api/Measurements  //it will return data in json formatt
+PostMan:
+GET: https://localhost:44394/api/Measurements 
+post:  {
+        "systolic": 135,
+        "diastolic": 85      
+       }
+DELETE: https://localhost:44394/api/Measurements/5 //5 is id here 
+or
+swagger: 
+https://localhost:44394/swagger/
+
+----------------- Functionality ------------
+1. Login functionality
+2. Save, Read, Delete record (both by MVC and WebAPI), data save in MSSql Database
+3. Sort by click on date column
+
+----------------- 7. Framework and tools ----------
+Backend:
+    .netCore 3.1
+    Language:C# 8.0
+    EntityFrameworkCore 3.1.8
+	MVC framework
+	WebApi framework
+	MSTest Unittest framework
+	AspNetCore.Identity for login
+	MSSql
+	Migration(EntityFrameworkCore tool to update database schema)
+	Swagger (documentation for Restful webservices)
+	
+Frontend:
+Razor
+Bootstrap(CSS framework)
+
+---------------------- Solution folder structure  --------------------------
+Solution has 4 seperate project
+1. BloodPressureApp.Data: Data has been separate from other project . Both MVC and Webservice get data from this layer.
+2. BloodPressureApp(MVC) : This is MVC project. Controller from here read/save the data to/from BloodPressureApp.Data and send data to View
+3. BloodPressureApp.WebService (API) : This is RestFulAPI. Controller from webservice Get/post data to/from BloodPressureApp.Data
+4. BloodPressureApp.UnitTest: MOQ Unit testing for loodPressureApp.WebService controllers 
+
+------------------------ Project structure ---------------------------------
 Solution name : BloodPressureApp
 Project Name :  BloodPressureApp (MVC)
 				BloodPressureApp.WebService (API)
 				BloodPressureApp.Data 
 					IRepositories
+						IMeasurementRepo.cs
 					Repositories
+						MeasurementRepo.cs
 					Models: BloodPressureDB
-					  Table: Measurement
-                             Id, Systolic, Diastolic, Category, Stage, Alert 					  
+					  Table: Measurement(Id, Systolic, Diastolic, Category, Suggestion, Date) 					  
 			   
-UnitTest     : UnitTestBloodPressureApp               
-			   Documentation
----------------- How to run BloodPressureApp(MVC)---------
-BloodPressureApp  Set as startup project.
-ctr + f5
-BloodPressureApp : is MVC framework project 
- 
----------------- How to run BloodPressureApp.WebService (API) --------- 
-BloodPressureApp.WebService  Set as startup project.
-Then postman:
-Get: https://localhost:44394/api/Measurements 		   
-PostMan: https://localhost:44394/api/Measurements 
-post:  {
-        "systolic": 135,
-        "diastolic": 85      
-       }
------------------ 
-Note: you can use any front-end by using WebService api 	   
-	 
+UnitTest     : BloodPressureApp.UnitTest              
+Documentation

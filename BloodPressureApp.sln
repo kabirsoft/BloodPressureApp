@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BloodPressureApp.Data", "Bl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BloodPressureApp.WebService", "BloodPressureApp.WebService\BloodPressureApp.WebService.csproj", "{295FEE88-503D-4E1F-8FBB-EA5A7C950A9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestBloodPressureApp", "UnitTestBloodPressureApp\UnitTestBloodPressureApp.csproj", "{4BE195F2-FA24-4F79-91EF-7DFD49CBCF7A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{3BCBA54B-F56E-42DD-8BEF-584E4E50DF13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloodPressureApp.UnitTest", "BloodPressureApp.UnitTest\BloodPressureApp.UnitTest.csproj", "{760CC16D-0DBA-4C52-B9E9-4E505970F6A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +31,10 @@ Global
 		{295FEE88-503D-4E1F-8FBB-EA5A7C950A9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{295FEE88-503D-4E1F-8FBB-EA5A7C950A9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{295FEE88-503D-4E1F-8FBB-EA5A7C950A9B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4BE195F2-FA24-4F79-91EF-7DFD49CBCF7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4BE195F2-FA24-4F79-91EF-7DFD49CBCF7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4BE195F2-FA24-4F79-91EF-7DFD49CBCF7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4BE195F2-FA24-4F79-91EF-7DFD49CBCF7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{760CC16D-0DBA-4C52-B9E9-4E505970F6A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{760CC16D-0DBA-4C52-B9E9-4E505970F6A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{760CC16D-0DBA-4C52-B9E9-4E505970F6A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{760CC16D-0DBA-4C52-B9E9-4E505970F6A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
