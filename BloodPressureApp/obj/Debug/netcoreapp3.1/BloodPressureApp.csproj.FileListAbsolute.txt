@@ -178,6 +178,7 @@ C:\Asp.Net_Pluralsight\Project\BloodPressureApp\BloodPressureApp\obj\Debug\netco
 C:\Asp.Net_Pluralsight\Project\BloodPressureApp\BloodPressureApp\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 C:\Asp.Net_Pluralsight\Project\BloodPressureApp\BloodPressureApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Asp.Net_Pluralsight\Project\BloodPressureApp\BloodPressureApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Asp.Net_Pluralsight\Project\BloodPressureApp\BloodPressureApp\obj\Debug\netcoreapp3.1\Razor\Views\LearnMore\Index.cshtml.g.cs
 C:\Asp.Net_Pluralsight\Project\BloodPressureApp\BloodPressureApp\obj\Debug\netcoreapp3.1\Razor\Views\Measurements\Create.cshtml.g.cs
 C:\Asp.Net_Pluralsight\Project\BloodPressureApp\BloodPressureApp\obj\Debug\netcoreapp3.1\Razor\Views\Measurements\Delete.cshtml.g.cs
 C:\Asp.Net_Pluralsight\Project\BloodPressureApp\BloodPressureApp\obj\Debug\netcoreapp3.1\Razor\Views\Measurements\Details.cshtml.g.cs
