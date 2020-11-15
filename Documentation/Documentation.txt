@@ -2,14 +2,14 @@
 BloodPressureApp will take two input data: systalic(number) and diastolic(number). App will analysis input data and deliver inforamtion accordingly. 
 App will show as your body bloodpressure Normal or critical or any another stage in which stage you may need to change your life style.
 
--------------------------- Set up: ----------------------------------
+-------------------------- Setup project locally ----------------------------------
 1. Download/git clone from github
 2. You have to migrate database to run this application.
 How to migrate:
 VS->Tool->nuget package manager->package manager console -> select default project: BloodPressureApp.Data
->add-migrate "Create database BloodPressureDB"
->update-database
-Check MSSql if database created.
+>add-migration "Create database BloodPressureDB"
+>update-database -verbose
+Check MSSql if database has been created.
 
 ------------------------- Two types of implementation in this solution(MVC and WebAPI): --------
 1. How to run MVC Project:
