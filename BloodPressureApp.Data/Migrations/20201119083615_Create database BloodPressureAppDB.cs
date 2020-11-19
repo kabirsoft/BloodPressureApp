@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BloodPressureApp.Data.Migrations
 {
-    public partial class CreateBloodPressureDB1 : Migration
+    public partial class CreatedatabaseBloodPressureAppDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -56,7 +56,8 @@ namespace BloodPressureApp.Data.Migrations
                     Diastolic = table.Column<int>(nullable: false),
                     Category = table.Column<string>(nullable: true),
                     Suggestion = table.Column<string>(nullable: true),
-                    Date = table.Column<DateTime>(nullable: false)
+                    Date = table.Column<DateTime>(nullable: false),
+                    UserID = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

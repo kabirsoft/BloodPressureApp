@@ -41,6 +41,9 @@ namespace BloodPressureApp.Data.Migrations
                     b.Property<int>("Systolic")
                         .HasColumnType("int");
 
+                    b.Property<string>("UserID")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Measurements");

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BloodPressureApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201113152052_CreateBloodPressureDB1")]
-    partial class CreateBloodPressureDB1
+    [Migration("20201119083615_Create database BloodPressureAppDB")]
+    partial class CreatedatabaseBloodPressureAppDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -42,6 +42,9 @@ namespace BloodPressureApp.Data.Migrations
 
                     b.Property<int>("Systolic")
                         .HasColumnType("int");
+
+                    b.Property<string>("UserID")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

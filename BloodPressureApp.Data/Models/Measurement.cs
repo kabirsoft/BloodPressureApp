@@ -18,6 +18,7 @@ namespace BloodPressureApp.Data.Models
         public string Category { get; set; }      
         public string Suggestion { get; set; }
         public DateTime Date { get; set; } = DateTime.Now;
+        public string UserID { get; set; }
     }
 
     public class Category
