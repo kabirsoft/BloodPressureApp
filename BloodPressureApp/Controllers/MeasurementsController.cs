@@ -9,23 +9,29 @@ using Microsoft.EntityFrameworkCore;
 using BloodPressureApp.Data.Models;
 using BloodPressureApp.Data;
 using BloodPressureApp.Data.IRepositories;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BloodPressureApp.Controllers
 {
+    [Authorize]
     public class MeasurementsController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly IMeasurementRepo measurementRepo;
-        public MeasurementsController(ApplicationDbContext context, IMeasurementRepo _measurementRepo)
+        private readonly IMeasurementRepo _measurementRepo;
+        private readonly UserManager<IdentityUser> _userManager;
+
+        public MeasurementsController(ApplicationDbContext context, IMeasurementRepo measurementRepo, UserManager<IdentityUser> userManager)
         {
             _context = context;
-            measurementRepo = _measurementRepo;
+            _measurementRepo = measurementRepo;
+            _userManager = userManager;
         }
 
         // GET: Measurements
         public IActionResult Index(string sortby)
         {
-            var measurements = measurementRepo.GetAll();
+            var measurements = _measurementRepo.GetAll().Where(m => m.UserID.Equals(_userManager.GetUserId(HttpContext.User)));
             ViewBag.OrderByDate = string.IsNullOrEmpty(sortby)? "date_asc" : "";
             switch (sortby)
             {
@@ -92,7 +98,8 @@ namespace BloodPressureApp.Controllers
                     measurement.Category = Category.Normal;
                 }
 
-                measurementRepo.AddNew(measurement);
+                measurement.UserID = _userManager.GetUserId(HttpContext.User);
+                _measurementRepo.AddNew(measurement);
                 return RedirectToAction(nameof(Index));
             }
             return View(measurement);
@@ -121,7 +128,7 @@ namespace BloodPressureApp.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {            
-            measurementRepo.Remove(id);
+            _measurementRepo.Remove(id);
             return RedirectToAction(nameof(Index));
         }
 
