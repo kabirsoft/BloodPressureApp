@@ -128,7 +128,8 @@ namespace BloodPressureApp.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {            
-            _measurementRepo.Remove(id);
+            var measurement = _context.Measurements.Where(x => x.Id == id && x.UserID.Equals(_userManager.GetUserId(HttpContext.User))).FirstOrDefault();
+            _measurementRepo.Remove(measurement.Id);
             return RedirectToAction(nameof(Index));
         }
 
