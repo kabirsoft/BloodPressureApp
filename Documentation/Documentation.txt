@@ -38,9 +38,9 @@ https://localhost:44394/swagger/
 
 ----------------- 7. Framework and tools ----------
 Backend:
-    .netCore 3.1
+    .net 5.0
     Language:C# 8.0
-    EntityFrameworkCore 3.1.8
+    EntityFrameworkCore 5.0.3
 	MVC framework
 	WebApi framework
 	MSTest Unittest framework
@@ -74,3 +74,26 @@ Project Name :  BloodPressureApp (MVC)
 			   
 UnitTest     : BloodPressureApp.UnitTest              
 Documentation
+
+
+-------------- oAuth github -------
+https://www.youtube.com/watch?v=R9lxXQcy-nM&t=246s
+
+1. https://github.com/settings/developers
+   set clientId and clientSecret
+   
+2. install:  AspNet.Security.OAuth.GitHub
+<PackageReference Include="AspNet.Security.OAuth.GitHub" Version="5.0.4" />
+
+3. appsettings.json  
+"Github": {
+    "ClientId": "d69fd2cf2f8a85dadd7f",
+    "ClientSecret": "f2ae564db6443fd01e2b456346642fc4b01b8c53"
+  },
+  
+4. startup.cs
+services.AddAuthentication().AddGitHub(options =>
+              {
+                  options.ClientId = Configuration["Github:ClientId"];
+                  options.ClientSecret = Configuration["Github:ClientSecret"];
+              });
