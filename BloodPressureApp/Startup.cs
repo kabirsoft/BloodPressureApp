@@ -35,9 +35,15 @@ namespace BloodPressureApp
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+            services.AddAuthentication()
+              .AddGitHub(options =>
+              {
+                  options.ClientId = Configuration["Github:ClientId"];
+                  options.ClientSecret = Configuration["Github:ClientSecret"];
+              });
             services.AddRazorPages();
-
             services.AddTransient<IMeasurementRepo, MeasurementRepo>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
